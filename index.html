@@ -26,48 +26,72 @@
       </div>
     </header>
     <section class="intro">
-      <div class="intro--text">
+      <div class="intro--header">
         <h2 class="subtitle">Rules</h2>
-        <p>Welcome inferior being !</p>
-        <p>I am <strong>Sheldor</strong>, grand master of Flatland. I challenge to this wonderful game of my conception.</p>
-        <p>Classical rock-paper-scissors is kind of boring isn't it ? Therefore I added two more choices for the player which are the lizard <i class="fas fa-hand-lizard"></i> and Spock <i class="fas fa-hand-spock"></i>.</p>
-        <p>About the rules, it's fairly simple but listen well, as I won't repeat myself :</p>
-        <ul class="rules">
-          <li class="rule">
-            <i class="fas fa-hand-scissors"></i> cuts <i class="fas fa-hand-paper"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-paper"></i> covers <i class="fas fa-hand-rock"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-rock"></i> crushes <i class="fas fa-hand-lizard"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-lizard"></i> poisons <i class="fas fa-hand-spock"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-spock"></i> smashes <i class="fas fa-hand-scissors"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-scissors"></i> decapitates <i class="fas fa-hand-lizard"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-lizard"></i> eats <i class="fas fa-hand-paper"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-paper"></i> disproves <i class="fas fa-hand-spock"></i>
-          </li>
-          <li class="rule">
-            <i class="fas fa-hand-spock"></i> vaporizes <i class="fas fa-hand-rock"></i>
-          </li>
-
-          <li class="rule">
-            <i class="fas fa-hand-rock"></i> crushes <i class="fas fa-hand-scissors"></i>
-          </li>
-        </ul>
+        <button class="btn-collapse"></button>
       </div>
-      <div class="sheldon">
-        <img src="img/sheldon.png" alt="">
+      <div class="intro--content">
+        <div class="intro--text">
+          <p>Welcome inferior being !</p>
+          <p>I am <strong>Sheldor</strong>, grand master of Flatland. I challenge you to this wonderful game of my conception.</p>
+          <p>Classical rock-paper-scissors is kind of boring isn't it ? Therefore I added two more choices for the player which are the lizard <i class="fas fa-hand-lizard"></i> and Spock <i class="fas fa-hand-spock"></i>.</p>
+          <p>About the rules, it's fairly simple but listen well, as I won't repeat myself :</p>
+          <div class="rules">
+            <p class="rule">
+              <i class="fas fa-hand-scissors"></i> cuts <i class="fas fa-hand-paper"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-paper"></i> covers <i class="fas fa-hand-rock"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-rock"></i> crushes <i class="fas fa-hand-lizard"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-lizard"></i> poisons <i class="fas fa-hand-spock"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-spock"></i> smashes <i class="fas fa-hand-scissors"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-scissors"></i> decapitates <i class="fas fa-hand-lizard"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-lizard"></i> eats <i class="fas fa-hand-paper"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-paper"></i> disproves <i class="fas fa-hand-spock"></i>
+            </p>
+            <p class="rule">
+              <i class="fas fa-hand-spock"></i> vaporizes <i class="fas fa-hand-rock"></i>
+            </p>
+
+            <p class="rule">
+              <i class="fas fa-hand-rock"></i> crushes <i class="fas fa-hand-scissors"></i>
+            </p>
+          </div>
+        </div>
+        <!-- <div class="sheldon">
+          <img src="img/sheldon.png" alt="">
+        </div> -->
+      </div>
+    </section>
+    <section class="game">
+      <div class="board">
+        <div class="player">
+          <div class="hand-container"><i class="fas fa-hand-spock"></i></div>
+          <p class="name">Inferior being</p>
+        </div>
+        <div class="sheldor">
+          <div class="hand-container"><i class="fas fa-hand-spock"></i></div>
+          <p class="name">Sheldor</p>
+        </div>
+      </div>
+      <div class="hands">
+        <button class="btn" data-hand="rock"><i class="fas fa-hand-rock"></i> Rock</button>
+        <button class="btn" data-hand="paper"><i class="fas fa-hand-paper"></i> Paper</button>
+        <button class="btn" data-hand="scissors"><i class="fas fa-hand-scissors"></i> Scissors</button>
+        <button class="btn" data-hand="lizard"><i class="fas fa-hand-lizard"></i> Lizard</button>
+        <button class="btn" data-hand="spoke"><i class="fas fa-hand-spock"></i> Spoke</button>
       </div>
     </section>
   </div>
