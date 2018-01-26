@@ -117,7 +117,7 @@ section {
 }
 
 .game {
-
+  overflow: hidden;
 }
 
 .board {
@@ -146,13 +146,21 @@ section {
   font-size: 7em;
 }
 
-.hand-container i.fa {
-
+.score {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  margin: 0 auto;
+  color: #f1c40f;
 }
 
 .hands {
   width: 80%;
-  margin: 10px auto;
+  margin: 0 auto;
+  padding: 20px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -165,4 +173,28 @@ section {
   color: #2c3e50;
   cursor: pointer;
   font-size: 1.1em;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.end--text {
+  margin-right: 20px;
+}
+
+.end--success {
+  background-color: #2ecc71;
+}
+
+.end--danger {
+  background-color: #e74c3c;
 }
