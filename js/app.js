@@ -4,12 +4,14 @@ var app = {
     app.turn = 0;
     app.playerScore = 0;
     app.cpuScore = 0;
+    app.gameover = false;
     $('.btn-collapse').html('<i class="fas fa-arrow-down"></i>');
     app.createButtons();
     $('.btn-collapse').on('click', app.collapse);
     app.$buttons = $('.hands .btn');
     app.$buttons.on('click', app.turnManager);
     app.checkEndGame();
+    $('.btn--replay').on('click', app.resetGame);
   },
 
   collapse: function() {
@@ -92,21 +94,38 @@ var app = {
         if(app.playerScore > app.cpuScore) {
           app.win();
           clearInterval(update);
+          console.log('end');
+          app.showEndScreen();
         }
         else {
           app.lose();
           clearInterval(update);
+          console.log('end');
+          app.showEndScreen();
         }
       }
-    }, 100);
+    }, 50);
+  },
+
+  showEndScreen: function() {
+    $('.hands').hide();
+    $('.end').fadeIn();
+    $('.end').css('display', 'flex');
   },
 
   win: function() {
-    alert('You win !');
+    $('.end').removeClass('end--danger');
+    $('.end').addClass('end--success');
   },
 
   lose: function() {
-    alert('Bazinga !');
+    $('.end').removeClass('end--success');
+    $('.end').addClass('end--danger');
+  },
+
+  resetGame: function() {
+    // app.init();
+    window.location.reload();
   },
 
   checkRules: function(pHand, cpuHand) {

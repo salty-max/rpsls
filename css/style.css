@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 600px;
   margin: 2em auto;
 }
 
@@ -180,7 +180,7 @@ section {
 }
 
 .end {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   color: #fff;
