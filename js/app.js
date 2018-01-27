@@ -178,11 +178,13 @@ var app = {
   win: function() {
     $('.end').removeClass('end--danger');
     $('.end').addClass('end--success');
+    $('.end--text').text('WEAAATOOON !');
   },
 
   lose: function() {
     $('.end').removeClass('end--success');
     $('.end').addClass('end--danger');
+    $('.end--text').text('Bazinga !');
   },
 
   resetGame: function() {
