@@ -7,13 +7,20 @@ var app = {
 
   changeScene: function() {
     var $name = $('#username').val();
-    $('.player .name').html($name);
     app.bo = Number($('input[type="radio"]:checked').val());
-    $('.menu').slideUp(function() {
-      $('.game--screen').slideDown();
-      app.createButtons();
-      app.start();
-    });
+    console.log('Name: '+$name+' Bo'+app.bo);
+    if($name !== '' && !isNaN(app.bo)) {
+      $('.error').hide();
+      $('.player .name').html($name);
+      $('.menu').slideUp(function() {
+        $('.game--screen').slideDown();
+        app.createButtons();
+        app.start();
+      });
+    }
+    else {
+      $('.error').fadeIn();
+    }
   },
 
   start: function() {

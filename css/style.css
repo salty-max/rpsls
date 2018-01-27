@@ -135,6 +135,14 @@ section {
   align-items: center;
 }
 
+.error {
+  color: #fff;
+  background-color: #e74c3c;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: none;
+}
+
 input[type="text"] {
   margin-left: 20px;
   padding: 10px 20px;
