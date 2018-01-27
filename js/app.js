@@ -1,13 +1,27 @@
 var app = {
+
   init: function() {
-    app.bo = 3;
+    $('.btn-collapse').html('<i class="fas fa-arrow-down"></i>');
+    $('.btn-collapse').on('click', app.collapse);
+    $('.btn--start').on('click', app.changeScene);
+  },
+
+  changeScene: function() {
+    var $name = $('#username').val();
+    $('.player .name').html($name);
+    app.bo = Number($('input[type="radio"]:checked').val());
+    $('.menu').slideUp(function() {
+      $('.game--screen').slideDown();
+      app.createButtons();
+      app.start();
+    });
+  },
+
+  start: function() {
     app.turn = 0;
     app.playerScore = 0;
     app.cpuScore = 0;
     app.gameover = false;
-    $('.btn-collapse').html('<i class="fas fa-arrow-down"></i>');
-    app.createButtons();
-    $('.btn-collapse').on('click', app.collapse);
     app.$buttons = $('.hands .btn');
     app.$buttons.on('click', app.turnManager);
     app.checkEndGame();
@@ -28,6 +42,7 @@ var app = {
   },
 
   createButtons: function() {
+    $('.hands').empty();
     for(var hand in app.hands) {
       var btn = '<button class="btn" data-hand="'+ app.hands[hand] +'"><i class="fas fa-hand-'+ app.hands[hand] +'"></i> '+ app.hands[hand] +'</button>';
       console.log(btn);
@@ -88,29 +103,77 @@ var app = {
     console.log(side + ' wins !');
   },
 
+  resetScore: function() {
+    $('.score').empty();
+  },
+
   checkEndGame: function() {
     var update = setInterval(function() {
       if(app.turn === app.bo) {
+        console.log('end');
         if(app.playerScore > app.cpuScore) {
           app.win();
           clearInterval(update);
-          console.log('end');
           app.showEndScreen();
         }
         else {
           app.lose();
           clearInterval(update);
-          console.log('end');
           app.showEndScreen();
         }
       }
-    }, 50);
+      else {
+        if(app.bo === 3) {
+          if(app.playerScore === 2) {
+            app.win();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+          else if(app.cpuScore === 2) {
+            app.lose();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+        }
+        if(app.bo === 5) {
+          if(app.playerScore === 3) {
+            app.win();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+          else if(app.cpuScore === 3) {
+            app.lose();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+        }
+        if(app.bo === 7) {
+          if(app.playerScore === 4) {
+            app.win();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+          else if(app.cpuScore === 4) {
+            app.lose();
+            clearInterval(update);
+            app.showEndScreen();
+          }
+        }
+      }
+    }, 300);
   },
 
   showEndScreen: function() {
-    $('.hands').hide();
-    $('.end').fadeIn();
-    $('.end').css('display', 'flex');
+    $('.hands').slideUp(function() {
+      $('.end').slideDown();
+      $('.end').css('display', 'flex');
+    });
+  },
+
+  resetScreen: function() {
+    $('.end').hide();
+    $('.hands').fadeIn('slow');
+    $('.hands').css('display', 'flex');
   },
 
   win: function() {
@@ -124,8 +187,12 @@ var app = {
   },
 
   resetGame: function() {
-    // app.init();
-    window.location.reload();
+    app.resetScore();
+    app.resetScreen();
+    $('.game--screen').slideUp(function() {
+      $('.menu').slideDown();
+      app.init();
+    });
   },
 
   checkRules: function(pHand, cpuHand) {

@@ -76,22 +76,43 @@
       </div>
     </section>
     <section class="game">
-      <div class="board">
-        <div class="player">
-          <div class="hand-container"></div>
-          <p class="name">Inferior being</p>
-          <div class="score player-score"></div>
-        </div>
-        <div class="sheldor">
-          <div class="hand-container"></div>
-          <p class="name">Sheldor</p>
-          <div class="score sheldor-score"></div>
-        </div>
+      <div class="menu">
+        <h2 class="subtitle">Game settings</h2>
+        <form action="" class="game--settings">
+          <label for="username">Name :</label>
+          <input id="username" type="text" name="username" placeholder="Enter your name here...">
+          <div class="bos">
+            <p>Number of rounds : </p>
+            <div class="bo-select">
+              <label for="bo">3</label>
+              <input type="radio" id="bo3" name="bo" value="3">
+              <label for="bo">5</label>
+              <input type="radio" id="bo5" name="bo" value="5">
+              <label for="bo">7</label>
+              <input type="radio" id="bo7" name="bo" value="7">
+            </div>
+          </div>
+        </form>
+        <button class="btn btn--start">Start the game</button>
       </div>
-      <div class="hands"></div>
-      <div class="end end--danger">
-        <span class="end--text">WEAAAATOOOOON !</span>
-        <button class="btn btn--replay"><i class="fas fa-redo-alt"></i> Replay</button>
+      <div class="game--screen">
+        <div class="board">
+          <div class="player">
+            <div class="hand-container"></div>
+            <p class="name">Inferior being</p>
+            <div class="score player-score"></div>
+          </div>
+          <div class="sheldor">
+            <div class="hand-container"></div>
+            <p class="name">Sheldor</p>
+            <div class="score sheldor-score"></div>
+          </div>
+        </div>
+        <div class="hands"></div>
+        <div class="end">
+          <span class="end--text">WEAAAATOOOOON !</span>
+          <button class="btn btn--replay"><i class="fas fa-redo-alt"></i> Replay</button>
+        </div>
       </div>
     </section>
   </div>
