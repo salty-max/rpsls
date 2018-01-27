@@ -1,8 +1,7 @@
 var app = {
 
   init: function() {
-    $('.btn-collapse').html('<i class="fas fa-arrow-down"></i>');
-    $('.btn-collapse').on('click', app.collapse);
+    $('.btn--collapse').html('<i class="fas fa-arrow-down"></i>');
     $('.btn--start').on('click', app.changeScene);
   },
 
@@ -21,7 +20,6 @@ var app = {
     app.turn = 0;
     app.playerScore = 0;
     app.cpuScore = 0;
-    app.gameover = false;
     app.$buttons = $('.hands .btn');
     app.$buttons.on('click', app.turnManager);
     app.checkEndGame();
@@ -33,12 +31,13 @@ var app = {
     if($toCollapse.hasClass('collapsed')) {
       $toCollapse.removeClass('collapsed');
       $(this).html('<i class="fas fa-arrow-down"></i>');
+      $toCollapse.slideUp();
     }
     else {
       $toCollapse.addClass('collapsed');
       $(this).html('<i class="fas fa-arrow-up"></i>');
+      $toCollapse.slideDown();
     }
-    $toCollapse.slideToggle();
   },
 
   createButtons: function() {
@@ -52,7 +51,7 @@ var app = {
   },
 
   createIcon: function(side, index) {
-    var icon = '<i class="'+ side +'-icon fas fa-hand-'+ app.hands[index] +'" data-hand="'+ app.hands[index] +'"></i>';
+    var icon = '<i class="hand-icon '+ side +'-icon fas fa-hand-'+ app.hands[index] +'" data-hand="'+ app.hands[index] +'"></i>';
     $('.'+ side +' .hand-container').html(icon);
   },
 
@@ -191,8 +190,9 @@ var app = {
     app.resetScreen();
     $('.game--screen').slideUp(function() {
       $('.menu').slideDown();
-      app.init();
+      $('.hand-container').empty();
     });
+    app.init();
   },
 
   checkRules: function(pHand, cpuHand) {
@@ -253,3 +253,4 @@ var app = {
 app.hands = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
 $(app.init);
+$($('.btn--collapse').on('click', app.collapse));
